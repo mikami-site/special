@@ -442,21 +442,18 @@ button {
 ======================================== */
 
 .header-page-button {
-  width: fit-content;
+  width: 44px;
+  height: 44px;
 
-  padding:
-    10px
-    0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  padding: 0;
 
   border: none;
 
-  border-bottom:
-    1px
-    solid
-    #777;
-
   background: transparent;
-
   color: #444;
 
   font-family:
@@ -464,16 +461,12 @@ button {
     Helvetica,
     sans-serif;
 
-  font-size: 10px;
-
-  letter-spacing: 0.18em;
+  font-size: 22px;
 
   cursor: pointer;
 
   transition:
-    opacity
-    0.2s
-    ease;
+    opacity 0.2s ease;
 }
 
 
@@ -492,13 +485,12 @@ button {
 }
 
 
+/* 使用できない矢印は完全に非表示 */
 .header-page-button:disabled {
-  opacity: 0.2;
+  visibility: hidden;
 
-  cursor: default;
+  pointer-events: none;
 }
-
-
 
 /* ========================================
    小説ページ
@@ -645,11 +637,16 @@ button {
   }
 
 
-  .header-page-button {
-    font-size: 8px;
+@media screen and (max-width: 600px) {
 
-    letter-spacing: 0.08em;
+  .header-page-button {
+    width: 40px;
+    height: 40px;
+
+    font-size: 20px;
   }
+
+}
 
 
 
