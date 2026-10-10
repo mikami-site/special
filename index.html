@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+  <meta charset="UTF-8">
+
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0"
+  >
+
+  <title>Special Story</title>
+
+  <link
+    rel="stylesheet"
+    href="style.css"
+  >
+
+  <script
+    src="script.js"
+    defer
+  ></script>
+</head>
+
+<body>
+
+  <!-- ========================================
+       パスワード入力画面
+  ========================================= -->
+
+  <section
+    id="password-screen"
+    class="password-screen"
+  >
+
+    <div class="password-container">
+
+      <p class="site-label">
+        SPECIAL STORY
+      </p>
+
+      <h1 class="password-title">
+        Password
+      </h1>
+
+      <p class="password-description">
+        閲覧にはパスワードが必要です。
+      </p>
+
+      <form id="password-form">
+
+        <input
+          type="password"
+          id="password-input"
+          class="password-input"
+          placeholder="PASSWORD"
+          autocomplete="off"
+          required
+        >
+
+        <button
+          type="submit"
+          class="password-button"
+        >
+          ENTER
+        </button>
+
+      </form>
+
+      <p
+        id="password-error"
+        class="password-error"
+        aria-live="polite"
+      >
+      </p>
+
+    </div>
+
+  </section>
+
+
+  <!-- ========================================
+       小説エリア
+  ========================================= -->
+
+  <main
+    id="story-area"
+    class="story-area"
+    hidden
+  >
+
+    <!-- ========================================
+         1ページ目
+    ========================================= -->
+
+    <article
+      id="page-1"
+      class="story-page"
+    >
+
+      <div class="story-container">
+
+        <div class="story-header">
+
+          <p class="story-label">
+            SPECIAL STORY
+          </p>
+
+          <p class="page-number">
+            01 / 02
+          </p>
+
+        </div>
+
+
+        <h1 class="story-title">
+          一ページ目のタイトル
+        </h1>
+
+
+        <div class="story-text">
+
+          <p>
+            ここに一ページ目の本文を入力します。
+          </p>
+
+          <p>
+            段落ごとに
+            &lt;p&gt; と &lt;/p&gt;
+            で囲んでください。
+          </p>
+
+          <p>
+            この部分を自由に書き換えることで、
+            小説本文を掲載できます。
+          </p>
+
+        </div>
+
+
+        <nav class="page-navigation">
+
+          <button
+            type="button"
+            class="next-button"
+            data-page="2"
+          >
+            NEXT
+            <span>→</span>
+          </button>
+
+        </nav>
+
+      </div>
+
+    </article>
+
+
+    <!-- ========================================
+         2ページ目
+    ========================================= -->
+
+    <article
+      id="page-2"
+      class="story-page"
+      hidden
+    >
+
+      <div class="story-container">
+
+        <div class="story-header">
+
+          <p class="story-label">
+            SPECIAL STORY
+          </p>
+
+          <p class="page-number">
+            02 / 02
+          </p>
+
+        </div>
+
+
+        <h1 class="story-title">
+          二ページ目のタイトル
+        </h1>
+
+
+        <div class="story-text">
+
+          <p>
+            ここに二ページ目の本文を入力します。
+          </p>
+
+          <p>
+            一ページ目とは別のタイトルを
+            設定できます。
+          </p>
+
+          <p>
+            小説の後編や、
+            別視点のエピソードなどを
+            入れることもできます。
+          </p>
+
+        </div>
+
+
+        <nav class="page-navigation page-navigation-last">
+
+          <button
+            type="button"
+            class="prev-button"
+            data-page="1"
+          >
+            <span>←</span>
+            BACK
+          </button>
+
+        </nav>
+
+      </div>
+
+    </article>
+
+  </main>
+
+</body>
+
+</html>
