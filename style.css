@@ -34,6 +34,7 @@ input {
 
 button {
   appearance: none;
+  -webkit-appearance: none;
 }
 
 
@@ -65,8 +66,11 @@ button {
 
 .password-container {
   width: 100%;
-
   max-width: 460px;
+
+  margin:
+    0
+    auto;
 
   text-align: center;
 }
@@ -142,9 +146,11 @@ button {
 ======================================== */
 
 .story-introduction {
+  width: 100%;
+
   margin:
     0
-    0
+    auto
     40px;
 
   padding:
@@ -164,6 +170,8 @@ button {
 
 
 .story-introduction-title {
+  width: 100%;
+
   margin:
     0
     0
@@ -181,10 +189,17 @@ button {
   font-weight: normal;
 
   letter-spacing: 0.25em;
+
+  text-align: center;
 }
 
 
 .story-introduction-text {
+  width: 100%;
+
+  margin: 0;
+  padding: 0;
+
   color: #555;
 
   font-size: 13px;
@@ -195,9 +210,14 @@ button {
 
   text-align: center;
 
-  white-space: pre-wrap;
+  /*
+    HTML内の余計なインデントは無視しつつ、
+    改行と空行は反映
+  */
+  white-space: pre-line;
 
-  overflow-wrap: break-word;
+  overflow-wrap: anywhere;
+  word-break: normal;
 }
 
 
@@ -327,6 +347,35 @@ button {
 
 
 /* ========================================
+   パスワード画面
+   トップに戻る
+======================================== */
+
+.back-to-top-link {
+  display: inline-block;
+
+  margin-top: 28px;
+
+  color: #777;
+
+  font-size: 12px;
+
+  letter-spacing: 0.08em;
+
+  text-decoration: none;
+
+  transition:
+    opacity 0.2s ease;
+}
+
+
+.back-to-top-link:hover {
+  opacity: 0.5;
+}
+
+
+
+/* ========================================
    小説エリア
 ======================================== */
 
@@ -350,7 +399,7 @@ button {
 
   width: 100%;
 
-  min-height: 90px;
+  min-height: 100px;
 
   display: grid;
 
@@ -362,7 +411,7 @@ button {
   align-items: center;
 
   padding:
-    18px
+    14px
     32px;
 
   border-bottom:
@@ -388,7 +437,7 @@ button {
 
 
 /* ========================================
-   ヘッダー中央
+   固定ヘッダー中央
 ======================================== */
 
 .header-story-info {
@@ -397,6 +446,46 @@ button {
   text-align: center;
 }
 
+
+
+/* ========================================
+   固定ヘッダー
+   トップに戻る
+======================================== */
+
+.header-top-link {
+  display: inline-block;
+
+  margin-bottom: 5px;
+
+  color: #999;
+
+  font-family:
+    Arial,
+    Helvetica,
+    sans-serif;
+
+  font-size: 8px;
+
+  letter-spacing: 0.14em;
+
+  text-decoration: none;
+
+  transition:
+    opacity 0.2s ease;
+}
+
+
+.header-top-link:hover {
+  opacity: 0.5;
+}
+
+
+
+/* ========================================
+   固定ヘッダー
+   小説タイトル
+======================================== */
 
 .header-story-title {
   margin: 0;
@@ -416,6 +505,12 @@ button {
   white-space: nowrap;
 }
 
+
+
+/* ========================================
+   固定ヘッダー
+   ページ番号
+======================================== */
 
 .header-page-number {
   margin:
@@ -442,7 +537,7 @@ button {
 ======================================== */
 
 .header-page-button {
-  width: 44px;
+  width: 90px;
   height: 44px;
 
   display: flex;
@@ -454,6 +549,7 @@ button {
   border: none;
 
   background: transparent;
+
   color: #444;
 
   font-family:
@@ -461,7 +557,11 @@ button {
     Helvetica,
     sans-serif;
 
-  font-size: 22px;
+  font-size: 10px;
+
+  letter-spacing: 0.14em;
+
+  white-space: nowrap;
 
   cursor: pointer;
 
@@ -485,12 +585,18 @@ button {
 }
 
 
-/* 使用できない矢印は完全に非表示 */
+/*
+  1ページ目ではBACK、
+  2ページ目ではNEXTを非表示
+*/
+
 .header-page-button:disabled {
   visibility: hidden;
 
   pointer-events: none;
 }
+
+
 
 /* ========================================
    小説ページ
@@ -511,7 +617,7 @@ button {
 .story-container {
   width:
     min(
-      100% - 48px,
+      calc(100% - 48px),
       760px
     );
 
@@ -537,6 +643,8 @@ button {
 ======================================== */
 
 .story-text {
+  margin: 0;
+
   font-size: 16px;
 
   line-height: 2.4;
@@ -544,7 +652,7 @@ button {
   letter-spacing: 0.06em;
 
   /*
-    貼り付けた改行・空行を
+    本文に貼り付けた改行・空行を
     そのまま表示
   */
 
@@ -567,9 +675,22 @@ button {
   ---------------------------------------- */
 
   .password-screen {
+    width: 100%;
+
     padding:
       40px
       22px;
+  }
+
+
+  .password-container {
+    width: 100%;
+
+    max-width: 460px;
+
+    margin:
+      0
+      auto;
   }
 
 
@@ -590,17 +711,70 @@ button {
   }
 
 
+
+  /* ----------------------------------------
+     小説説明
+  ---------------------------------------- */
+
   .story-introduction {
+    width: 100%;
+
+    margin:
+      0
+      auto
+      40px;
+
     padding:
       24px
       0;
   }
 
 
+  .story-introduction-title {
+    width: 100%;
+
+    margin:
+      0
+      0
+      18px;
+
+    text-align: center;
+  }
+
+
   .story-introduction-text {
+    width: 100%;
+
+    margin: 0;
+
+    padding:
+      0
+      4px;
+
     font-size: 12px;
 
     line-height: 2;
+
+    letter-spacing: 0.04em;
+
+    text-align: center;
+
+    white-space: pre-line;
+
+    overflow-wrap: anywhere;
+  }
+
+
+
+  /* ----------------------------------------
+     パスワード画面
+     トップに戻る
+  ---------------------------------------- */
+
+  .back-to-top-link {
+    margin-top: 24px;
+
+    font-size: 11px;
   }
 
 
@@ -610,21 +784,32 @@ button {
   ---------------------------------------- */
 
   .story-fixed-header {
-    min-height: 80px;
+    min-height: 90px;
 
     grid-template-columns:
-      68px
+      72px
       minmax(0, 1fr)
-      68px;
+      72px;
 
     padding:
-      12px
-      14px;
+      10px
+      12px;
+  }
+
+
+  .header-top-link {
+    margin-bottom: 4px;
+
+    font-size: 7px;
+
+    letter-spacing: 0.1em;
   }
 
 
   .header-story-title {
     font-size: 14px;
+
+    line-height: 1.5;
 
     letter-spacing: 0.06em;
   }
@@ -637,16 +822,14 @@ button {
   }
 
 
-@media screen and (max-width: 600px) {
-
   .header-page-button {
-    width: 40px;
+    width: 68px;
     height: 40px;
 
-    font-size: 20px;
-  }
+    font-size: 8px;
 
-}
+    letter-spacing: 0.08em;
+  }
 
 
 
@@ -660,8 +843,12 @@ button {
         100% - 40px
       );
 
+    margin:
+      0
+      auto;
+
     padding:
-      100px
+      115px
       0
       80px;
   }
