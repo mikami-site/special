@@ -2,7 +2,7 @@
    パスワード設定
 ======================================== */
 
-const PASSWORD = "0719";
+const PASSWORD = "special123";
 
 
 /* ========================================
@@ -27,8 +27,28 @@ const storyArea =
 const storyPages =
   document.querySelectorAll(".story-page");
 
-const pageButtons =
-  document.querySelectorAll("[data-page]");
+
+const headerStoryTitle =
+  document.getElementById("header-story-title");
+
+const headerPageNumber =
+  document.getElementById("header-page-number");
+
+const prevPageButton =
+  document.getElementById("prev-page-button");
+
+const nextPageButton =
+  document.getElementById("next-page-button");
+
+
+/* ========================================
+   ページ設定
+======================================== */
+
+const totalPages =
+  storyPages.length;
+
+let currentPage = 1;
 
 
 /* ========================================
@@ -71,10 +91,21 @@ passwordForm.addEventListener(
 
 
 /* ========================================
-   ページ切り替え
+   ページ表示
 ======================================== */
 
 function showPage(pageNumber) {
+
+  if (
+    pageNumber < 1 ||
+    pageNumber > totalPages
+  ) {
+    return;
+  }
+
+
+  currentPage = pageNumber;
+
 
   storyPages.forEach(function(page) {
 
@@ -85,7 +116,7 @@ function showPage(pageNumber) {
 
   const targetPage =
     document.getElementById(
-      `page-${pageNumber}`
+      `page-${currentPage}`
     );
 
 
@@ -97,6 +128,29 @@ function showPage(pageNumber) {
   targetPage.hidden = false;
 
 
+  /* タイトル変更 */
+
+  headerStoryTitle.textContent =
+    targetPage.dataset.title;
+
+
+  /* ページ番号変更 */
+
+  headerPageNumber.textContent =
+    `${String(currentPage).padStart(2, "0")} / ${String(totalPages).padStart(2, "0")}`;
+
+
+  /* ボタン状態変更 */
+
+  prevPageButton.disabled =
+    currentPage === 1;
+
+  nextPageButton.disabled =
+    currentPage === totalPages;
+
+
+  /* ページ上部に戻る */
+
   window.scrollTo({
     top: 0,
     behavior: "instant"
@@ -106,21 +160,32 @@ function showPage(pageNumber) {
 
 
 /* ========================================
-   NEXT / BACK
+   BACK
 ======================================== */
 
-pageButtons.forEach(function(button) {
+prevPageButton.addEventListener(
+  "click",
+  function() {
 
-  button.addEventListener(
-    "click",
-    function() {
+    showPage(
+      currentPage - 1
+    );
 
-      const pageNumber =
-        Number(button.dataset.page);
+  }
+);
 
-      showPage(pageNumber);
 
-    }
-  );
+/* ========================================
+   NEXT
+======================================== */
 
-});
+nextPageButton.addEventListener(
+  "click",
+  function() {
+
+    showPage(
+      currentPage + 1
+    );
+
+  }
+);
