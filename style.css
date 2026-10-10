@@ -492,7 +492,7 @@ button {
 
   overflow: hidden;
 
-  font-size: 24px;
+  font-size: 28px;
 
   font-weight: normal;
 
@@ -537,8 +537,8 @@ button {
 ======================================== */
 
 .header-page-button {
-  width: 90px;
-  height: 44px;
+  width: 110px;
+  height: 50px;
 
   display: flex;
   justify-content: center;
@@ -557,9 +557,9 @@ button {
     Helvetica,
     sans-serif;
 
-  font-size: 10px;
+  font-size: 13px;
 
-  letter-spacing: 0.14em;
+  letter-spacing: 0.12em;
 
   white-space: nowrap;
 
@@ -806,13 +806,13 @@ button {
   }
 
 
-  .header-story-title {
-    font-size: 14px;
+.header-story-title {
+  font-size: 18px;
 
-    line-height: 1.5;
+  line-height: 1.5;
 
-    letter-spacing: 0.06em;
-  }
+  letter-spacing: 0.06em;
+}
 
 
   .header-page-number {
@@ -822,14 +822,14 @@ button {
   }
 
 
-  .header-page-button {
-    width: 68px;
-    height: 40px;
+.header-page-button {
+  width: 76px;
+  height: 44px;
 
-    font-size: 8px;
+  font-size: 10px;
 
-    letter-spacing: 0.08em;
-  }
+  letter-spacing: 0.06em;
+}
 
 
 
