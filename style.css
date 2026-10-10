@@ -661,16 +661,16 @@ button {
       );
 
     padding:
-      125px
+      100px
       0
-      90px;
+      80px;
   }
 
 
   .story-text {
-    font-size: 15px;
+    font-size: 13px;
 
-    line-height: 2.3;
+    line-height: 1.8;
 
     letter-spacing: 0.04em;
   }
