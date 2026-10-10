@@ -5,54 +5,86 @@
 const PASSWORD = "special123";
 
 
+
 /* ========================================
    要素取得
 ======================================== */
 
 const passwordScreen =
-  document.getElementById("password-screen");
+  document.getElementById(
+    "password-screen"
+  );
+
 
 const passwordForm =
-  document.getElementById("password-form");
+  document.getElementById(
+    "password-form"
+  );
+
 
 const passwordInput =
-  document.getElementById("password-input");
+  document.getElementById(
+    "password-input"
+  );
+
 
 const passwordError =
-  document.getElementById("password-error");
+  document.getElementById(
+    "password-error"
+  );
+
 
 const storyArea =
-  document.getElementById("story-area");
+  document.getElementById(
+    "story-area"
+  );
+
 
 const storyPages =
-  document.querySelectorAll(".story-page");
+  document.querySelectorAll(
+    ".story-page"
+  );
 
 
 const headerStoryTitle =
-  document.getElementById("header-story-title");
+  document.getElementById(
+    "header-story-title"
+  );
+
 
 const headerPageNumber =
-  document.getElementById("header-page-number");
+  document.getElementById(
+    "header-page-number"
+  );
+
 
 const prevPageButton =
-  document.getElementById("prev-page-button");
+  document.getElementById(
+    "prev-page-button"
+  );
+
 
 const nextPageButton =
-  document.getElementById("next-page-button");
+  document.getElementById(
+    "next-page-button"
+  );
+
 
 
 /* ========================================
-   ページ設定
+   ページ情報
 ======================================== */
 
 const totalPages =
   storyPages.length;
 
+
 let currentPage = 1;
 
 
+
 /* ========================================
-   パスワード入力
+   パスワード認証
 ======================================== */
 
 passwordForm.addEventListener(
@@ -61,26 +93,45 @@ passwordForm.addEventListener(
 
     event.preventDefault();
 
+
     const enteredPassword =
       passwordInput.value;
 
 
-    if (enteredPassword === PASSWORD) {
+    /* 正しいパスワード */
 
-      passwordError.textContent = "";
+    if (
+      enteredPassword === PASSWORD
+    ) {
 
-      passwordScreen.hidden = true;
+      passwordError.textContent =
+        "";
 
-      storyArea.hidden = false;
+
+      passwordScreen.hidden =
+        true;
+
+
+      storyArea.hidden =
+        false;
+
 
       showPage(1);
 
-    } else {
+    }
+
+
+    /* 間違ったパスワード */
+
+    else {
 
       passwordError.textContent =
         "パスワードが違います。";
 
-      passwordInput.value = "";
+
+      passwordInput.value =
+        "";
+
 
       passwordInput.focus();
 
@@ -90,11 +141,18 @@ passwordForm.addEventListener(
 );
 
 
+
 /* ========================================
    ページ表示
 ======================================== */
 
 function showPage(pageNumber) {
+
+
+  /*
+    存在しないページへの
+    移動を防ぐ
+  */
 
   if (
     pageNumber < 1 ||
@@ -104,15 +162,28 @@ function showPage(pageNumber) {
   }
 
 
-  currentPage = pageNumber;
+
+  /* 現在ページを更新 */
+
+  currentPage =
+    pageNumber;
 
 
-  storyPages.forEach(function(page) {
 
-    page.hidden = true;
+  /* 全ページを非表示 */
 
-  });
+  storyPages.forEach(
+    function(page) {
 
+      page.hidden =
+        true;
+
+    }
+  );
+
+
+
+  /* 対象ページ取得 */
 
   const targetPage =
     document.getElementById(
@@ -125,31 +196,53 @@ function showPage(pageNumber) {
   }
 
 
-  targetPage.hidden = false;
+
+  /* ページ表示 */
+
+  targetPage.hidden =
+    false;
 
 
-  /* タイトル変更 */
+
+  /* ========================================
+     ヘッダーのタイトル変更
+  ======================================== */
 
   headerStoryTitle.textContent =
     targetPage.dataset.title;
 
 
-  /* ページ番号変更 */
+
+  /* ========================================
+     ページ番号変更
+  ======================================== */
 
   headerPageNumber.textContent =
     `${String(currentPage).padStart(2, "0")} / ${String(totalPages).padStart(2, "0")}`;
 
 
-  /* ボタン状態変更 */
+
+  /* ========================================
+     BACKボタン
+  ======================================== */
 
   prevPageButton.disabled =
     currentPage === 1;
+
+
+
+  /* ========================================
+     NEXTボタン
+  ======================================== */
 
   nextPageButton.disabled =
     currentPage === totalPages;
 
 
-  /* ページ上部に戻る */
+
+  /* ========================================
+     ページ上部へ戻る
+  ======================================== */
 
   window.scrollTo({
     top: 0,
@@ -157,6 +250,7 @@ function showPage(pageNumber) {
   });
 
 }
+
 
 
 /* ========================================
@@ -173,6 +267,7 @@ prevPageButton.addEventListener(
 
   }
 );
+
 
 
 /* ========================================
