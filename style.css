@@ -403,7 +403,7 @@ button {
 
   overflow: hidden;
 
-  font-size: 17px;
+  font-size: 24px;
 
   font-weight: normal;
 
@@ -419,7 +419,7 @@ button {
 
 .header-page-number {
   margin:
-    7px
+    8px
     0
     0;
 
