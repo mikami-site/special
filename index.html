@@ -83,42 +83,65 @@
        小説エリア
   ========================================= -->
 
-  <main
-    id="story-area"
-    class="story-area"
-    hidden
+<main
+  id="story-area"
+  class="story-area"
+  hidden
+>
+
+  <!-- 固定ヘッダー -->
+  <header class="story-fixed-header">
+
+    <button
+      type="button"
+      id="prev-page-button"
+      class="header-page-button"
+    >
+      ← BACK
+    </button>
+
+    <div class="header-story-info">
+
+      <h1
+        id="header-story-title"
+        class="header-story-title"
+      >
+        一ページ目のタイトル
+      </h1>
+
+      <p
+        id="header-page-number"
+        class="header-page-number"
+      >
+        01 / 02
+      </p>
+
+    </div>
+
+    <button
+      type="button"
+      id="next-page-button"
+      class="header-page-button"
+    >
+      NEXT →
+    </button>
+
+  </header>
+
+
+  <!-- ========================================
+       1ページ目
+  ========================================= -->
+
+  <article
+    id="page-1"
+    class="story-page"
+    data-title="残夏のラプソディ"
   >
 
-    <!-- ========================================
-         1ページ目
-    ========================================= -->
+    <div class="story-container">
 
-    <article
-      id="page-1"
-      class="story-page"
-    >
-
-      <div class="story-container">
-
-        <div class="story-header">
-
-          <p class="story-label">
-            SPECIAL STORY
-          </p>
-
-          <p class="page-number">
-            01 / 02
-          </p>
-
-        </div>
-
-
-        <h1 class="story-title">
-          残夏のラプソディ
-        </h1>
-
-
-        <div class="story-text">
+      <div class="story-text">
 　ただでさえ暑い真夏にわざわざ海に行くような物好きが、なぜこんなにもいるのだろう。
 　日陰のベンチに腰を下ろしたアキラは、かけていた眼鏡を外して服の袖で汗を拭った。最高気温が三十度を越える今日という日に賑わうビーチでは、海水浴を楽しむ者よりも所狭しと並ぶキッチンカーに列を作る者の方が圧倒的に多い。その原因は人垣の向こうに設置された、巨大なステージにある。
 　臨海サマーフェスティバル、通称夏フェス。この広い海辺で本日開催されるイベントの名称だ。
@@ -396,58 +419,27 @@
 　顔が火照っているのは恐らく、炎天下から連れてきた熱が冷めていないからだ。そう自分に言い聞かせるアキラの手を、悠真は今度こそ強く握りしめた。
 「これからもよろしくね、アキラくん」
 　満面の笑顔でそう告げられると、悩んでいた自分が馬鹿みたいだ。観念して苦笑いを零すアキラの前で、彼はずっと幸せそうに表情を緩めていた。
-        </div>
-
-
-        <nav class="page-navigation">
-
-          <button
-            type="button"
-            class="next-button"
-            data-page="2"
-          >
-            NEXT
-            <span>→</span>
-          </button>
-
-        </nav>
-
       </div>
 
-    </article>
+    </div>
+
+  </article>
 
 
-    <!-- ========================================
-         2ページ目
-    ========================================= -->
+  <!-- ========================================
+       2ページ目
+  ========================================= -->
 
-    <article
-      id="page-2"
-      class="story-page"
-      hidden
-    >
+  <article
+    id="page-2"
+    class="story-page"
+    data-title="残響のトロイメライ"
+    hidden
+  >
 
-      <div class="story-container">
+    <div class="story-container">
 
-        <div class="story-header">
-
-          <p class="story-label">
-            SPECIAL STORY
-          </p>
-
-          <p class="page-number">
-            02 / 02
-          </p>
-
-        </div>
-
-
-        <h1 class="story-title">
-          残響のトロイメライ
-        </h1>
-
-
-        <div class="story-text">
+      <div class="story-text">
 　タタタ、とカフェの端でキーを弾く音が微かに響く。少し奮発して買った静音性に優れたキーボードは周りの客の邪魔にはなっていないようで、ほっと息を吐きながらアキラは画面に集中する。
 　全席にカーテンと仕切りが付けられたこのカフェは、誰かと秘密の話をするには最適の場所だった。中でも一番奥の席を選んだのは理由がある。自分ではなく、これから会う約束をしている相手にとっての、だが。
 「店長さん、お待たせー！」
@@ -706,27 +698,13 @@
 　密やかに囁かれた言葉に悠真は浮かれてしまう。天下の歌姫と名高いアストラを差し置いて、自分が選ばれることは滅多にない。彼が自分を求めてくれる——その事実だけで、満たされた心地になった。
 「じゃあ、あと一回だけ、ね」
 　呆れた風を装いながらも乗り気な悠真の心情を察しているのだろう、アキラはくすりと笑みを零すと、求めるように両腕を伸ばして悠真を捕らえ、触れるだけの優しいキスをくれた。
-        </div>
-
-
-        <nav class="page-navigation page-navigation-last">
-
-          <button
-            type="button"
-            class="prev-button"
-            data-page="1"
-          >
-            <span>←</span>
-            BACK
-          </button>
-
-        </nav>
-
       </div>
 
-    </article>
+    </div>
 
-  </main>
+  </article>
+
+</main>
 
 </body>
 
