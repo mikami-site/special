@@ -192,7 +192,7 @@ button {
 
 
 /* ========================================
-   小説ページ
+   小説エリア
 ======================================== */
 
 .story-area {
@@ -200,40 +200,73 @@ button {
 }
 
 
-.story-page {
+/* ========================================
+   固定ヘッダー
+======================================== */
+
+.story-fixed-header {
+  position: fixed;
+  top: 0;
+  left: 0;
+
+  z-index: 1000;
+
   width: 100%;
-  min-height: 100vh;
-}
+  min-height: 90px;
 
+  display: grid;
+  grid-template-columns:
+    minmax(100px, 1fr)
+    minmax(0, 3fr)
+    minmax(100px, 1fr);
 
-.story-container {
-  width: min(100% - 48px, 760px);
-
-  margin: 0 auto;
+  align-items: center;
 
   padding:
-    80px
-    0
-    120px;
+    18px
+    32px;
+
+  border-bottom: 1px solid #ddd;
+
+  background: rgba(248, 247, 244, 0.96);
+
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
 }
 
 
 /* ========================================
-   ページ上部
+   ヘッダー中央
 ======================================== */
 
-.story-header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
+.header-story-info {
+  min-width: 0;
 
-  margin-bottom: 80px;
+  text-align: center;
 }
 
 
-.story-label,
-.page-number {
+.header-story-title {
   margin: 0;
+
+  overflow: hidden;
+
+  font-size: 17px;
+  font-weight: normal;
+
+  line-height: 1.5;
+  letter-spacing: 0.1em;
+
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+
+.header-page-number {
+  margin:
+    7px
+    0
+    0;
 
   color: #999;
 
@@ -242,67 +275,21 @@ button {
     Helvetica,
     sans-serif;
 
-  font-size: 10px;
-  letter-spacing: 0.25em;
+  font-size: 9px;
+
+  letter-spacing: 0.2em;
 }
 
 
 /* ========================================
-   タイトル
+   ヘッダーボタン
 ======================================== */
 
-.story-title {
-  margin:
-    0
-    0
-    70px;
-
-  font-size: 30px;
-  font-weight: normal;
-
-  line-height: 1.8;
-  letter-spacing: 0.12em;
-}
-
-
-/* ========================================
-   本文
-======================================== */
-
-.story-text {
-  font-size: 16px;
-  line-height: 2.4;
-  letter-spacing: 0.06em;
-
-  white-space: pre-wrap;
-}
-
-
-/* ========================================
-   ページ移動
-======================================== */
-
-.page-navigation {
-  display: flex;
-  justify-content: flex-end;
-
-  margin-top: 100px;
-}
-
-
-.page-navigation-last {
-  justify-content: flex-start;
-}
-
-
-.page-navigation button {
-  display: flex;
-  align-items: center;
-
-  gap: 18px;
+.header-page-button {
+  width: fit-content;
 
   padding:
-    14px
+    10px
     0;
 
   border: none;
@@ -316,20 +303,75 @@ button {
     Helvetica,
     sans-serif;
 
-  font-size: 11px;
-  letter-spacing: 0.25em;
+  font-size: 10px;
+
+  letter-spacing: 0.18em;
 
   cursor: pointer;
 }
 
 
-.page-navigation button span {
-  font-size: 16px;
+#prev-page-button {
+  justify-self: start;
 }
 
 
-.page-navigation button:hover {
-  opacity: 0.55;
+#next-page-button {
+  justify-self: end;
+}
+
+
+.header-page-button:hover {
+  opacity: 0.5;
+}
+
+
+.header-page-button:disabled {
+  opacity: 0.2;
+
+  cursor: default;
+}
+
+
+/* ========================================
+   小説ページ
+======================================== */
+
+.story-page {
+  width: 100%;
+  min-height: 100vh;
+}
+
+
+.story-container {
+  width: min(100% - 48px, 760px);
+
+  margin: 0 auto;
+
+  /*
+    固定ヘッダーと本文が
+    重ならないようにする
+  */
+  padding:
+    150px
+    0
+    120px;
+}
+
+
+/* ========================================
+   本文
+======================================== */
+
+.story-text {
+  font-size: 16px;
+
+  line-height: 2.4;
+  letter-spacing: 0.06em;
+
+  white-space: pre-wrap;
+
+  overflow-wrap: break-word;
 }
 
 
@@ -339,20 +381,36 @@ button {
 
 @media screen and (max-width: 600px) {
 
-  .password-screen {
+  .story-fixed-header {
+    min-height: 80px;
+
+    grid-template-columns:
+      70px
+      minmax(0, 1fr)
+      70px;
+
     padding:
-      40px
-      24px;
+      14px
+      16px;
   }
 
 
-  .site-label {
-    margin-bottom: 35px;
+  .header-story-title {
+    font-size: 14px;
   }
 
 
-  .password-title {
-    font-size: 26px;
+  .header-page-number {
+    margin-top: 5px;
+
+    font-size: 8px;
+  }
+
+
+  .header-page-button {
+    font-size: 8px;
+
+    letter-spacing: 0.1em;
   }
 
 
@@ -360,33 +418,16 @@ button {
     width: calc(100% - 40px);
 
     padding:
-      55px
+      125px
       0
       90px;
   }
 
 
-  .story-header {
-    margin-bottom: 55px;
-  }
-
-
-  .story-title {
-    margin-bottom: 50px;
-
-    font-size: 23px;
-    line-height: 1.8;
-  }
-
-
   .story-text {
     font-size: 15px;
+
     line-height: 2.3;
-  }
-
-
-  .page-navigation {
-    margin-top: 70px;
   }
 
 }
